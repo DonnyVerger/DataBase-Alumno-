@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base de datos alumnos</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+    <!-- Botones (Segundo formulario) -->
+    <form id="formulario1">
+        <div>
+            <h2 class="welcome" style="font-size: 80px;" id="elNombre">Escuela Rat Apon Leprecio</h2>
+        </div>
+        <div class="row w-100 align-items-center">
+            <button class="botones p-2 m-2" id="alta" style="font-size: 2em;">Dar de alta alumno</button>
+            <button class="botones p-2 m-2" id="mostrar" style="font-size: 2em;">Mostrar alumnos</button>
+            <button class="botones p-2 m-2" id="materia" style="font-size: 2em;">Asignar materia</button>
+            <button class="botones p-2 m-2" id="grupo1" style="font-size: 2em;">Crear grupo</button>
+            <button class="botones p-2 m-2" id="grupo2" style="font-size: 2em;">Gestionar grupo</button>
+            <button class="botonSalir p-2 m-2 rounded-pill" id="salir1" style="background-color: rgb(231, 90, 90); font-size: 1.5em;">Salir</button>
+        </div>
+    </form>
+    <!--Formulario Alta -->
+    <form id="fomrAlta" style="display:none;">
+        <h1>Dar de alta a un alumno</h1>
+        <h2>Ingrese los datos: </h2>
+            <label for="alumno">Nombre de alumno: </label>
+            <input type="text" id="alumno">
+            <label for="apellidoPat">Apellido paterno: </label>
+            <input type="text" id="apellidoPat">
+            <label for="apellidoMat">Apellido materno: </label>
+            <input type="text" id="apellidoMat">
+            <label for="edad">Edad: </label>
+            <input type="text" id="edad">
+            <label for="sexo">Sexo: </label>
+            <input type="text" id="sexo">
+            <button type="submit" id="AgregarAlumno" value="1" style="width: 100px;">Agregar</button>
+            <button class="botonParaSalir" id="regresar1">Regresar</button>
+    </form>
+    <!--Formulario mostrar-->
+    <form id="formMostrar" style="display:none;">
+        <h2>Los alumnos contenidos en la base de datos son: </h2>
+        <div id="listita">
+
+        </div>
+        <!-- <input class="inp" type="text" id="mirame" style="font-family: Arial; font-size: 40pt;" readonly disabled> -->
+        <button class="botonParaSalir" id="regresar2">Regresar</button>
+    </form>
+    <!--Formulario materia-->
+    <form id="formMateria" style="display:none;">
+        <h2>Ingrese los datos: </h2>
+            <label for="Materia">Materia: </label>
+            <input type="text" id="Materia">
+            <label >seleccione al alumno que quiera inscribir: </label>
+            <select id="miAlumno">
+                <option>Seleccione un alumno...
+            </select>
+            <label for="apellidoMat">Dar calificacion: </label>
+            <input type="number" id="cal" min="0" max="10" value="0">
+            <button type="submit" id="AgregarMateria" value="1" style="width: 100px;">Agregar</button>
+            <button class="botonParaSalir" id="regresar3">Regresar</button>
+    </form>
+    <!--Formulario crear grupo-->
+<!--     Idea
+Aqui puedo hacer que al momento de utilizar la estructura de datos para vizualisar el grupo, tambien se inserte todo
+lo referente a ese grupo en un arreglo, y usar ese arreglo para poder hacer las consultas
+-->
+    <form id="formuGrupoName" style="display:none;">
+        <label for="nameG">Nombre de grupo: </label>
+        <input type="text" id="nameG">
+        <button type="submit" id="submit" style="width: 100px;">Crear</button>
+    </form>
+    <section>
+        <form id="formuAddGrupo" style="display:none;"">
+            <h1 id="nombreGrupo"></h1>
+            <label for="guess">Alumno a añadir: </label>
+            <select id="miAlumno2">
+                <option>Seleccione un alumno...
+            </select>
+            <button type="submit" id="submit" value="2" style="width: 100px;">Añadir alumno</button>
+            <button onclick="construccionTotal()">Mostrar grupo</button>
+        </form>
+        <div id="contenedor">
+        </div>  
+    </section>
+    <!--Formulario consultar grupo-->
+
+    <script type="module" src="./Main.js"></script>
+</body>
+</html>
